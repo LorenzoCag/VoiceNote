@@ -1,0 +1,37 @@
+{
+  "_comment": "Each must_mention entry is a list of alternatives; at least one must appear (case-insensitive) in the summary, key points, or action items. Cases with several files concatenate them; overrides shrink the token limits to force chunking.",
+  "cases": [
+    {
+      "name": "grocery_todo",
+      "files": ["grocery_todo.txt"],
+      "must_mention": [["dentist"], ["sarah"], ["friday"]],
+      "action_items_min": 3
+    },
+    {
+      "name": "no_actions",
+      "files": ["no_actions.txt"],
+      "must_mention": [["hike", "trail", "walk"]],
+      "action_items_max": 0
+    },
+    {
+      "name": "meeting_rambling",
+      "files": ["meeting_rambling.txt"],
+      "must_mention": [["march 17", "17 march", "march 17th", "17th"], ["priya"], ["marcus"]],
+      "action_items_min": 2
+    },
+    {
+      "name": "tiny",
+      "files": ["tiny.txt"],
+      "must_mention": [["library"]],
+      "action_items_max": 1
+    },
+    {
+      "name": "long_chunked",
+      "files": ["grocery_todo.txt", "no_actions.txt", "meeting_rambling.txt"],
+      "overrides": {"max_input_tokens": 250, "chunk_tokens": 200},
+      "must_mention": [["priya"], ["dentist"]],
+      "action_items_min": 4,
+      "chunks_min": 2
+    }
+  ]
+}

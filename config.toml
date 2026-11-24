@@ -14,3 +14,13 @@ backend = "mlx-whisper"      # see voicenote/transcription/__init__.py for avail
 #      whisper-large-v3-turbo
 model = "mlx-community/whisper-base-mlx"
 language = ""                # e.g. "en"; empty = auto-detect
+
+[summarization]
+backend = "mlx-lm"
+# Hugging Face repo ID (downloaded once, then cached). Try Qwen3-0.6B-4bit / -bf16 or
+# Qwen3-1.7B-8bit to compare quality, speed, and memory.
+model = "mlx-community/Qwen3-0.6B-8bit"
+temperature = 0.1            # low = more faithful and consistent
+max_new_tokens = 700
+max_input_tokens = 3000      # transcripts longer than this are chunked, then merged
+chunk_tokens = 1500          # target size of each chunk

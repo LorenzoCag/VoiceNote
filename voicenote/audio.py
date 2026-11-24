@@ -20,7 +20,12 @@ AUDIO_EXTENSIONS = {".wav", ".mp3", ".m4a", ".aac", ".flac", ".ogg", ".opus", ".
 def new_recording_path(recordings_dir: Path, suffix: str = ".wav") -> Path:
     recordings_dir.mkdir(parents=True, exist_ok=True)
     stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
-    return recordings_dir / f"{stamp}{suffix}"
+    path = recordings_dir / f"{stamp}{suffix}"
+    n = 1
+    while path.exists():  # two recordings in the same second must not overwrite each other
+        path = recordings_dir / f"{stamp}-{n}{suffix}"
+        n += 1
+    return path
 
 
 def save_wav(path: Path, samples: np.ndarray, sample_rate: int) -> None:

@@ -1,4 +1,5 @@
 mlx-whisper
 mlx-lm
+streamlit
 sounddevice
 numpy

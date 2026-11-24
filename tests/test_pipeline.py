@@ -91,10 +91,25 @@ class SummarizerTests(unittest.TestCase):
         self.assertEqual(retry_messages[-2]["role"], "assistant")
         self.assertIn("not valid", retry_messages[-1]["content"])
 
-    def test_raises_after_two_failures(self):
-        llm = FakeLLM(["nope", "still nope"])
+    def test_raises_after_all_attempts_fail(self):
+        llm = FakeLLM(["nope", "still nope", "nope again"])
         with self.assertRaises(SummarizationError):
             Summarizer(llm, CFG).summarize("Some transcript text here.")
+        self.assertEqual(len(llm.calls), 3)
+
+    def test_retries_raise_temperature(self):
+        temps = []
+
+        class Recording(FakeLLM):
+            def generate(self, messages, max_tokens, temperature, prefill=""):
+                temps.append(temperature)
+                return super().generate(messages, max_tokens, temperature, prefill)
+
+        llm = Recording(["bad", "bad", ok()])
+        Summarizer(llm, CFG).summarize("Some transcript text here.")
+        self.assertEqual(len(temps), 3)
+        self.assertLess(temps[0], temps[1])
+        self.assertLess(temps[1], temps[2])
 
     def test_drops_ungrounded_items(self):
         llm = FakeLLM([ok("S.", ["Meeting with the CEO of Acme"], ["call the dentist", "book flights to Paris"])])

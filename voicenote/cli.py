@@ -7,6 +7,7 @@
     python -m voicenote summarize FILE        # summarize a .txt transcript or an audio file
     python -m voicenote devices               # list microphones
     python -m voicenote setup                 # one-time model download (the only online step)
+    python -m voicenote ui                    # web interface at http://localhost:8501
 """
 
 from __future__ import annotations
@@ -86,6 +87,21 @@ def cmd_setup(args, config) -> int:
         return 1
     print("\nAll models are ready. VoiceNote now works fully offline.")
     return 0
+
+
+def cmd_ui(args, config) -> int:
+    """Launch the web UI. Replaces this process with Streamlit (env, incl. offline mode, is kept)."""
+    import os
+    import sys
+
+    from voicenote.config import PROJECT_ROOT
+
+    print(f"Starting VoiceNote at http://localhost:{args.port}  (Ctrl+C to stop)")
+    os.chdir(PROJECT_ROOT)  # so Streamlit picks up .streamlit/config.toml
+    os.execv(
+        sys.executable,
+        [sys.executable, "-m", "streamlit", "run", str(PROJECT_ROOT / "app.py"), "--server.port", str(args.port)],
+    )
 
 
 def cmd_devices(args, config) -> int:
@@ -197,6 +213,10 @@ def main(argv: list[str] | None = None) -> int:
 
     st = sub.add_parser("setup", help="download the configured models once (needs internet)")
     st.set_defaults(func=cmd_setup)
+
+    ui = sub.add_parser("ui", help="open the web interface in your browser")
+    ui.add_argument("--port", type=int, default=8501)
+    ui.set_defaults(func=cmd_ui)
 
     tr = sub.add_parser("transcribe", help="transcribe an existing audio file")
     tr.add_argument("file", type=Path)

@@ -11,7 +11,10 @@ from voicenote.summarization import prompts
 from voicenote.summarization.base import LLM, Generation, SummarizationError, Summary
 from voicenote.transcription import Transcript
 
-MAX_ATTEMPTS = 2  # first try + one retry with the validation error fed back to the model
+# First try + retries with the validation error fed back to the model. Each retry raises the
+# temperature a little so a small model doesn't repeat the exact same malformed output.
+MAX_ATTEMPTS = 3
+RETRY_TEMPERATURE_STEP = 0.2
 MAX_KEY_POINTS = 8
 GROUNDING_THRESHOLD = 0.6  # min fraction of an item's content words found in the transcript
 
@@ -182,7 +185,7 @@ class Summarizer:
             gen = self.llm.generate(
                 messages,
                 max_tokens=self.config.max_new_tokens,
-                temperature=self.config.temperature,
+                temperature=self.config.temperature + RETRY_TEMPERATURE_STEP * (attempt - 1),
                 prefill="{",
             )
             stats.add(gen)

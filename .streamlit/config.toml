@@ -1,0 +1,17 @@
+[server]
+address = "127.0.0.1"        # reachable from this Mac only, never from the network
+maxUploadSize = 500          # MB
+
+[browser]
+gatherUsageStats = false     # no telemetry: nothing leaves this machine
+
+[client]
+toolbarMode = "minimal"      # hides the Deploy button and developer menu
+
+[theme]
+base = "light"
+primaryColor = "#111827"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f5f6f8"
+textColor = "#111827"
+font = "sans serif"

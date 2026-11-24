@@ -30,16 +30,23 @@ def apply_offline_mode(config: Config) -> None:
         os.environ["TRANSFORMERS_OFFLINE"] = "1"
 
 
-def is_cached(model: str) -> bool:
+def is_cached(model: str, cache_dir: str | Path | None = None) -> bool:
+    """True if the model is usable from the local cache without any network access.
+
+    Deliberately checks only what the loaders need (config.json + weight files) rather than
+    every file in the repo: mlx-lm and mlx-whisper skip README/.gitattributes, and
+    snapshot_download(local_files_only=True) would wrongly call such a cache incomplete.
+    """
     if Path(model).expanduser().exists():  # a local model directory
         return True
-    from huggingface_hub import snapshot_download
+    from huggingface_hub import try_to_load_from_cache
 
-    try:
-        snapshot_download(model, local_files_only=True)
-        return True
-    except Exception:
+    config_path = try_to_load_from_cache(model, "config.json", cache_dir=cache_dir)
+    if not isinstance(config_path, str):  # None, or a "known missing" marker
         return False
+    snapshot = Path(config_path).parent
+    weights = [*snapshot.glob("*.safetensors"), *snapshot.glob("*.npz")]
+    return any(w.exists() for w in weights)  # exists() follows symlinks, so broken links don't count
 
 
 def require(config: Config, kind: str) -> None:

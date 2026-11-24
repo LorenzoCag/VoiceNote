@@ -31,6 +31,8 @@ class Config:
     transcription_model: str
     transcription_language: str | None  # None = auto-detect
     summarization: SummarizationConfig = SummarizationConfig()
+    # True = never touch the network; models must already be downloaded (`python -m voicenote setup`).
+    offline: bool = True
 
     @property
     def recordings_dir(self) -> Path:
@@ -50,6 +52,7 @@ def load_config(path: Path | None = None) -> Config:
     s = raw.get("summarization", {})
     defaults = SummarizationConfig()
     return Config(
+        offline=bool(raw.get("general", {}).get("offline", True)),
         sample_rate=int(raw.get("audio", {}).get("sample_rate", 16000)),
         input_device=raw.get("audio", {}).get("input_device") or None,
         data_dir=data_dir,

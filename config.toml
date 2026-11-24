@@ -1,5 +1,10 @@
 # VoiceNote configuration. Edit this file to swap models; no code changes needed.
 
+[general]
+# true = the app never uses the network. Download models once with `python -m voicenote setup`
+# (which works online regardless of this setting), then everything runs fully offline.
+offline = true
+
 [audio]
 sample_rate = 16000          # Whisper's native rate; recordings are mono 16-bit WAV
 input_device = "Lorro Microphone"            # name substring or index (see `python -m voicenote devices`); empty = system default

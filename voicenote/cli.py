@@ -6,6 +6,7 @@
     python -m voicenote transcribe FILE       # transcribe an existing audio file
     python -m voicenote summarize FILE        # summarize a .txt transcript or an audio file
     python -m voicenote devices               # list microphones
+    python -m voicenote setup                 # one-time model download (the only online step)
 """
 
 from __future__ import annotations
@@ -15,7 +16,7 @@ import json
 import threading
 from pathlib import Path
 
-from voicenote import audio
+from voicenote import audio, models
 from voicenote.config import load_config
 from voicenote.summarization import SummarizationError, Summary, get_summarizer
 from voicenote.transcription import Transcript, get_transcriber
@@ -50,15 +51,17 @@ def _print_summary(s: Summary) -> None:
 
 
 def _transcribe(config, path: Path) -> Transcript:
-    print(f"Transcribing {path} (first run downloads the model; later runs are offline)...")
+    models.require(config, "transcription")
+    print(f"Transcribing {path} ...")
     transcript = get_transcriber(config).transcribe(path)
     _print_transcript(transcript)
     return transcript
 
 
 def _summarize(config, transcript: Transcript | str, as_json: bool = False) -> int:
+    models.require(config, "summarization")
     if not as_json:
-        print("\nSummarizing (first run downloads the model; later runs are offline)...")
+        print("\nSummarizing ...")
     try:
         summary = get_summarizer(config.summarization).summarize(transcript)
     except ValueError as e:  # empty transcript
@@ -71,6 +74,17 @@ def _summarize(config, transcript: Transcript | str, as_json: bool = False) -> i
         print(json.dumps(summary.to_dict(), indent=2, ensure_ascii=False))
     else:
         _print_summary(summary)
+    return 0
+
+
+def cmd_setup(args, config) -> int:
+    print("Downloading the models named in config.toml (the only step that needs internet)...\n")
+    try:
+        models.download_all(config)
+    except Exception as e:
+        print(f"\nDownload failed: {e}\nCheck your internet connection and run `python -m voicenote setup` again.")
+        return 1
+    print("\nAll models are ready. VoiceNote now works fully offline.")
     return 0
 
 
@@ -181,6 +195,9 @@ def main(argv: list[str] | None = None) -> int:
     dev = sub.add_parser("devices", help="list available microphones")
     dev.set_defaults(func=cmd_devices)
 
+    st = sub.add_parser("setup", help="download the configured models once (needs internet)")
+    st.set_defaults(func=cmd_setup)
+
     tr = sub.add_parser("transcribe", help="transcribe an existing audio file")
     tr.add_argument("file", type=Path)
     tr.add_argument("--summarize", action="store_true", help="also summarize the transcript")
@@ -192,4 +209,11 @@ def main(argv: list[str] | None = None) -> int:
     sm.set_defaults(func=cmd_summarize)
 
     args = parser.parse_args(argv)
-    return args.func(args, load_config(args.config))
+    config = load_config(args.config)
+    if args.command != "setup":  # setup is the one command allowed to use the network
+        models.apply_offline_mode(config)
+    try:
+        return args.func(args, config)
+    except models.ModelNotAvailable as e:
+        print(f"\nError: {e}")
+        return 1

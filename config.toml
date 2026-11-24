@@ -2,7 +2,7 @@
 
 [audio]
 sample_rate = 16000          # Whisper's native rate; recordings are mono 16-bit WAV
-input_device = "External Microphone"            # name substring or index (see `python -m voicenote devices`); empty = system default
+input_device = "Lorro Microphone"            # name substring or index (see `python -m voicenote devices`); empty = system default
 
 [storage]
 data_dir = "data"            # recordings, transcripts, summaries live here (git-ignored)

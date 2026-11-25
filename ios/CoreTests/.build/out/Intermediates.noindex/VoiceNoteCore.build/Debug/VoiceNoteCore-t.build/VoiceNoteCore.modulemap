@@ -1,0 +1,4 @@
+module VoiceNoteCore {
+header "VoiceNoteCore-Swift.h"
+export *
+}

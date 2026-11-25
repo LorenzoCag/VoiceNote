@@ -1,0 +1,11 @@
+Target dependency graph (4 targets)
+Target 'AllIncludingTests' in project 'Aggregate'
+➜ Explicit dependency on target 'VoiceNoteCoreTests-product' in project 'VoiceNoteCore'
+➜ Dependency on target 'VoiceNoteCoreTests-product' in project 'VoiceNoteCore' via transitive dependency through 'VoiceNoteCoreTests-test-runner'
+➜ Explicit dependency on target 'VoiceNoteCore-product' in project 'VoiceNoteCore'
+➜ Explicit dependency on target 'VoiceNoteCore' in project 'VoiceNoteCore'
+Target 'VoiceNoteCore-product' in project 'VoiceNoteCore'
+➜ Explicit dependency on target 'VoiceNoteCore' in project 'VoiceNoteCore'
+Target 'VoiceNoteCoreTests-product' in project 'VoiceNoteCore'
+➜ Explicit dependency on target 'VoiceNoteCore' in project 'VoiceNoteCore'
+Target 'VoiceNoteCore' in project 'VoiceNoteCore' (no dependencies)

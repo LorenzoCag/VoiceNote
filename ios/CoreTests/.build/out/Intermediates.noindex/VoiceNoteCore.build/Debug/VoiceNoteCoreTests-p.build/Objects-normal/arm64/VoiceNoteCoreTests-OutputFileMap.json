@@ -1,0 +1,49 @@
+{
+  "" : {
+    "diagnostics" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/VoiceNoteCoreTests-primary.dia",
+    "emit-module-dependencies" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/VoiceNoteCoreTests-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/VoiceNoteCoreTests-primary-emit-module.dia",
+    "pch" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/VoiceNoteCoreTests-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/VoiceNoteCoreTests-primary.swiftdeps"
+  },
+  "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/DerivedSources/test_entry_point.swift" : {
+    "const-values" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/test_entry_point.swiftconstvalues",
+    "dependencies" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/test_entry_point.d",
+    "diagnostics" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/test_entry_point.dia",
+    "index-unit-output-path" : "/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/test_entry_point.o",
+    "llvm-bc" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/test_entry_point.bc",
+    "object" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/test_entry_point.o",
+    "swift-dependencies" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/test_entry_point.swiftdeps",
+    "swiftmodule" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/test_entry_point~partial.swiftmodule"
+  },
+  "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/Tests/VoiceNoteCoreTests/DemoEngineTests.swift" : {
+    "const-values" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/DemoEngineTests.swiftconstvalues",
+    "dependencies" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/DemoEngineTests.d",
+    "diagnostics" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/DemoEngineTests.dia",
+    "index-unit-output-path" : "/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/DemoEngineTests.o",
+    "llvm-bc" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/DemoEngineTests.bc",
+    "object" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/DemoEngineTests.o",
+    "swift-dependencies" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/DemoEngineTests.swiftdeps",
+    "swiftmodule" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/DemoEngineTests~partial.swiftmodule"
+  },
+  "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/Tests/VoiceNoteCoreTests/NoteStoreTests.swift" : {
+    "const-values" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/NoteStoreTests.swiftconstvalues",
+    "dependencies" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/NoteStoreTests.d",
+    "diagnostics" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/NoteStoreTests.dia",
+    "index-unit-output-path" : "/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/NoteStoreTests.o",
+    "llvm-bc" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/NoteStoreTests.bc",
+    "object" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/NoteStoreTests.o",
+    "swift-dependencies" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/NoteStoreTests.swiftdeps",
+    "swiftmodule" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/NoteStoreTests~partial.swiftmodule"
+  },
+  "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/Tests/VoiceNoteCoreTests/NoteTests.swift" : {
+    "const-values" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/NoteTests.swiftconstvalues",
+    "dependencies" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/NoteTests.d",
+    "diagnostics" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/NoteTests.dia",
+    "index-unit-output-path" : "/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/NoteTests.o",
+    "llvm-bc" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/NoteTests.bc",
+    "object" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/NoteTests.o",
+    "swift-dependencies" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/NoteTests.swiftdeps",
+    "swiftmodule" : "/Users/lorenzocagliero/Documents/VoiceNote/ios/CoreTests/.build/out/Intermediates.noindex/VoiceNoteCore.build/Debug/VoiceNoteCoreTests-p.build/Objects-normal/arm64/NoteTests~partial.swiftmodule"
+  }
+}

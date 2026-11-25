@@ -157,3 +157,5 @@ To add an inference backend (llama.cpp, a quantized variant, ...), implement the
 2. ~~Summarization with Qwen3 via MLX-LM~~ (done)
 3. ~~Web UI, JSON storage, note history~~ (done)
 4. End-to-end polish, benchmarking, quantization and fine-tuning experiments
+
+Next idea here would be to develop an ios version of the app.
